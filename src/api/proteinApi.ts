@@ -30,3 +30,13 @@ export async function getProteinById(id: number) {
 
   return response.json();
 }
+
+export async function deleteProtein(id: number) {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "DELETE",
+  });
+
+  if (!response.ok) {
+    throw new Error("Error deleting protein");
+  }
+}
