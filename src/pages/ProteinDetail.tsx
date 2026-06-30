@@ -63,12 +63,12 @@ function ProteinDetail() {
           >
             <p>
               Length:
-              <b> {protein.length}</b>
+              <b> {protein.length} aa</b>
             </p>
 
             <p>
               Weight:
-              <b> {protein.molecularWeight}</b>
+              <b> {protein.molecularWeight} Da</b>
             </p>
 
             <p>
