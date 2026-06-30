@@ -4,14 +4,14 @@ import { useParams } from "react-router-dom";
 
 import { getProteinById } from "../api/proteinApi";
 
-import type { ProteinDetail } from "../types/protein";
+import type { ProteinAnalysisDetail } from "../types/protein";
 
 import Navbar from "../components/Navbar";
 
 function ProteinDetail() {
   const { id } = useParams();
 
-  const [protein, setProtein] = useState<ProteinDetail | null>(null);
+  const [protein, setProtein] = useState<ProteinAnalysisDetail | null>(null);
 
   useEffect(() => {
     if (id) {
@@ -26,42 +26,110 @@ function ProteinDetail() {
   return (
     <div>
       <Navbar />
-      <h2>{protein.proteinId}</h2>
 
-      <p>Length: {protein.length}</p>
+      <main
+        className="
+        max-w-4xl
+        mx-auto
+        px-6
+        py-10
+        "
+      >
+        <div
+          className="
+          bg-white
+          rounded-xl
+          shadow
+          p-8
+          "
+        >
+          <h2
+            className="
+            text-3xl
+            font-bold
+            mb-6
+            text-cyan-700
+            "
+          >
+            {protein.proteinId}
+          </h2>
 
-      <p>Weight: {protein.molecularWeight}</p>
+          <div
+            className="
+            grid
+            grid-cols-2
+            gap-5
+            "
+          >
+            <p>
+              Length:
+              <b> {protein.length}</b>
+            </p>
 
-      <p>pI: {protein.pI}</p>
+            <p>
+              Weight:
+              <b> {protein.molecularWeight}</b>
+            </p>
 
-      <p>Hydrophobicity: {protein.hydrophobicity}</p>
+            <p>
+              pI:
+              <b> {protein.pI}</b>
+            </p>
 
-      <p>
-        Instability:
-        {protein.instabilityIndex}
-      </p>
+            <p>
+              Hydrophobicity:
+              <b> {protein.hydrophobicity}</b>
+            </p>
 
-      <p>
-        Aliphatic:
-        {protein.aliphaticIndex}
-      </p>
+            <p>
+              Instability:
+              <b> {protein.instabilityIndex}</b>
+            </p>
 
-      <h3>Structure</h3>
+            <p>
+              Aliphatic:
+              <b> {protein.aliphaticIndex}</b>
+            </p>
+          </div>
 
-      <p>
-        Alpha helix:
-        {protein.structure.alphaHelix}
-      </p>
+          <h3
+            className="
+            text-xl
+            font-bold
+            mt-8
+            mb-4
+            "
+          >
+            Secondary Structure
+          </h3>
 
-      <p>
-        Beta sheet:
-        {protein.structure.betaSheet}
-      </p>
+          <div
+            className="
+            grid
+            grid-cols-3
+            gap-4
+            "
+          >
+            <div className="bg-slate-100 p-4 rounded-lg">
+              Alpha Helix
+              <br />
+              {protein.structure.alphaHelix}%
+            </div>
 
-      <p>
-        Turn:
-        {protein.structure.turn}
-      </p>
+            <div className="bg-slate-100 p-4 rounded-lg">
+              Beta Sheet
+              <br />
+              {protein.structure.betaSheet}%
+            </div>
+
+            <div className="bg-slate-100 p-4 rounded-lg">
+              Turn
+              <br />
+              {protein.structure.turn}%
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }

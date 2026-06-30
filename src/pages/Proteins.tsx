@@ -18,21 +18,63 @@ function Proteins() {
   return (
     <div>
       <Navbar />
-      <h2>Analyzed Proteins</h2>
 
-      {proteins.map((protein) => (
-        <div key={protein.id}>
-          <h3>
-            <Link to={`/proteins/${encodeURIComponent(protein.id)}`}>
-              {protein.proteinId}
-            </Link>
-          </h3>
+      <main
+        className="
+max-w-5xl
+mx-auto
+px-6
+py-10
+"
+      >
+        <h2
+          className="
+text-3xl
+font-bold
+mb-8
+"
+        >
+          Analyzed Proteins
+        </h2>
 
-          <p>Length: {protein.length}</p>
+        <div
+          className="
+grid
+md:grid-cols-2
+gap-6
+"
+        >
+          {proteins.map((protein) => (
+            <div
+              key={protein.id}
+              className="
+bg-white
+rounded-xl
+shadow
+p-6
+border
+hover:shadow-lg
+transition
+"
+            >
+              <Link
+                className="
+text-xl
+font-bold
+text-cyan-700
+"
+                to={`/proteins/${protein.id}`}
+              >
+                🧬 {protein.proteinId}
+              </Link>
 
-          <p>Weight: {protein.molecularWeight}</p>
+              <p>Length: {protein.length} aa</p>
+
+              <p>Weight: {protein.molecularWeight} Da</p>
+            </div>
+          ))}
         </div>
-      ))}
+      </main>
     </div>
   );
 }

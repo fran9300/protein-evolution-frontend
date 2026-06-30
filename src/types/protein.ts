@@ -30,7 +30,7 @@ export interface ProteinAnalysis {
   structure: Structure;
 }
 
-export interface ProteinDetail {
+export interface ProteinAnalysisDetail {
   id: number;
 
   proteinId: string;
