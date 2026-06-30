@@ -29,3 +29,27 @@ export interface ProteinAnalysis {
 
   structure: Structure;
 }
+
+export interface ProteinDetail {
+  id: number;
+
+  proteinId: string;
+
+  length: number;
+
+  molecularWeight: number;
+
+  pI: number;
+
+  hydrophobicity: number;
+
+  instabilityIndex: number;
+
+  aliphaticIndex: number;
+
+  composition: Record<string, number>;
+
+  structure: Structure;
+
+  createdAt: string;
+}

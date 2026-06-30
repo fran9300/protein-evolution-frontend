@@ -18,3 +18,15 @@ export async function analyzeProtein(file: File): Promise<ProteinAnalysis> {
 
   return response.json();
 }
+
+export async function getProteins() {
+  const response = await fetch(API_URL);
+
+  return response.json();
+}
+
+export async function getProteinById(id: number) {
+  const response = await fetch(`${API_URL}/${id}`);
+
+  return response.json();
+}
